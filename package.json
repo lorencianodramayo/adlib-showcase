@@ -21,7 +21,7 @@
     "server": "nodemon server/index.js",
     "client": "cd client && quasar dev",
     "build": "cd client && quasar build",
-    "heroku-postbuild": "cd client && yarn install && yarn build",
+    "heroku-postbuild": "cd client && yarn install && quasar build",
     "dev": "concurrently -n 'server,client' -c 'red,green'  \"npm run server\" \"npm run client\""
   }
 }
