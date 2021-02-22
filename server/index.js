@@ -1,10 +1,16 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const morgan = require("morgan");
-const path = require("path");
-var cors = require("cors");
+const express = require("express"),
+  serveStatic = require("serve-static"),
+  history = require("connect-history-api-fallback"),
+  mongoose = require("mongoose"),
+  morgan = require("morgan"),
+  path = require("path"),
+  cors = require("cors");
 
 const app = express();
+
+app.use(history());
+app.use(serveStatic(__dirname + "/dist/spa"));
+
 const port = process.env.PORT || 3000;
 
 const routes = require("./routes/api");
