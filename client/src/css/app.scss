@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;600;700&display=swap');
+// app global css in SCSS form
+body{
+  font-family: 'Cabin', sans-serif;
+}
+.q-dialog {
+  .q-dialog__inner {
+    padding: 0 !important;
+  }
+}
