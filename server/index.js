@@ -8,9 +8,6 @@ const express = require("express"),
 
 const app = express();
 
-app.use(history());
-app.use(serveStatic(__dirname + "/dist/spa"));
-
 const port = process.env.PORT || 3000;
 
 const routes = require("./routes/api");
@@ -27,6 +24,12 @@ mongoose.connection.on("connected", () => {
   console.log("Mongoose is connected!!!!");
 });
 
+//access points
+app.use(enforce.HTTPS({ trustProtoHeader: true }));
+//serve all files
+app.use(serveStatic(__dirname + "/dist/spa"));
+//running history fix router history issues
+app.use(history());
 // Data parsing
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
